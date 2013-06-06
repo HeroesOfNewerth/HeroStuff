@@ -34,10 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -47,6 +43,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -61,6 +58,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Подобрать";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox1
@@ -74,19 +72,20 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.Sorted = true;
             this.comboBox1.TabIndex = 3;
+            this.comboBox1.Visible = false;
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "1 игрок",
-            "2 игрока",
-            "3 игрока "});
+            "2 игрока"});
             this.comboBox2.Location = new System.Drawing.Point(213, 12);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(228, 21);
             this.comboBox2.TabIndex = 5;
             this.comboBox2.DropDown += new System.EventHandler(this.comboBox2_DropDown);
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged_1);
             this.comboBox2.SelectionChangeCommitted += new System.EventHandler(this.comboBox2_SelectionChangeCommitted);
             this.comboBox2.StyleChanged += new System.EventHandler(this.comboBox2_StyleChanged);
             // 
@@ -98,6 +97,7 @@
             this.label2.Size = new System.Drawing.Size(75, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Выбор героя:";
+            this.label2.Visible = false;
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
@@ -108,6 +108,7 @@
             this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 9;
             this.label1.Text = "Выбор героя:";
+            this.label1.Visible = false;
             // 
             // comboBox3
             // 
@@ -121,49 +122,7 @@
             this.comboBox3.Size = new System.Drawing.Size(121, 21);
             this.comboBox3.TabIndex = 8;
             this.comboBox3.Visible = false;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(139, 149);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 38);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Подобрать";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 247);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 13);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Выбор героя:";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            "Amun-Ra",
-            "War Beast",
-            "Ellonia"});
-            this.comboBox4.Location = new System.Drawing.Point(12, 263);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 21);
-            this.comboBox4.TabIndex = 11;
-            this.comboBox4.Visible = false;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(139, 174);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(110, 52);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Подобрать";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // pictureBox1
             // 
@@ -248,11 +207,23 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(139, 150);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(101, 36);
+            this.button2.TabIndex = 22;
+            this.button2.Text = "Подобрать";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(689, 383);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -262,12 +233,8 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
@@ -292,10 +259,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -305,6 +268,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button2;
     }
 }
 
