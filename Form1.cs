@@ -15,72 +15,199 @@ namespace WindowsFormsApplication4
 
     public partial class Form1 : Form
     {
+        int viewcounter = 0;
         int herocounter = 0;
+        int counter = 0;
+        bool selected1 = false;
+        bool selected2 = false;
+        string[,] Hero1;
+        string[,] Hero2;
         void Choose2(string[,] mass1, string[,] mass2)
         {
             string[,] bothhero = new string[255, 255];
-            int counter = 0, viewcounter = 0;
+            string[,] usedheroes = new string[255, 255];
             int counter1 = mass1.Length;
             int counter2 = mass2.Length;
-            for (int i = 0; i < counter1; i++)
+            if (viewcounter < 1)
             {
-                for (int f = 0; f < counter2; f++)
+                for (int i = 0; i < counter1 / 2; i++)
                 {
-                    if (mass1[0, i] == mass2[0, f])
+                    for (int f = 0; f < counter2 / 2; f++)
                     {
-                        bothhero[0, counter] = mass1[0, i];
-                        bothhero[1, counter] = mass1[1, i];
-                        counter++;
-                    }
-
-                }
-            }
-            switch (counter)
-            {
-                case 1:
-                    {
-                        label1.Text = bothhero[0, 0];
-                        pictureBox1.Load(bothhero[1, 0]);
-                        if (label4.Text != mass1[0, 1])
+                        if (mass1[0, i] == mass2[0, f])
                         {
+                            bothhero[0, counter] = mass1[0, i];
+                            bothhero[1, counter] = mass1[1, i];
+                            counter++;
+                        }
+
+                    }
+                }
+                switch (counter)
+                {
+                    case 0:
+                        {
+                            label4.Text = mass1[0, 0];
+                            pictureBox1.Load(mass1[1, 0]);
                             label5.Text = mass1[0, 1];
                             pictureBox2.Load(mass1[1, 1]);
-                        }
-                        if (label4.Text != mass1[0, 2])
-                        {
                             label6.Text = mass2[0, 2];
-                            pictureBox2.Load(mass2[1, 2]);
+                            pictureBox3.Load(mass2[1, 2]);
+                            label7.Text = mass2[0, 3];
+                            pictureBox3.Load(mass2[1, 3]);
+                            viewcounter = 2;
+                            counter = 0;
+                            break;
                         }
-                        if (label4.Text != mass1[0,3])
+                    case 1:
                         {
-                            label7.Text = mass1[0, 3];
-                            pictureBox2.Load(mass1[1, 3]);
-                        }
+                            label4.Text = bothhero[0, 0];
+                            pictureBox1.Load(bothhero[1, 0]);
+                            viewcounter = 1;
+                            counter = 0;
+                            break;
 
-                        if (label2.Text == "")
+                        }
+                    case 2:
                         {
-                            if (label1.Text != mass1[0, 1] && label3.Text != mass1[0, 1] && label4.Text != mass1[0, 1])
-                            {
-                                label2.Text = mass1[0, 1];
-                                pictureBox2.Load(mass1[1, 1]);
-                            }
-                        }
-                        break;
+                            label4.Text = bothhero[0, 0];
+                            pictureBox1.Load(bothhero[1, 0]);
+                            label5.Text = bothhero[0, 1];
+                            pictureBox2.Load(bothhero[1, 1]);
+                            viewcounter = 1;
+                            counter = 0;
+                            break;
 
-                    }
-                case 2:
+                        }
+                    case 3:
+                        {
+                            label4.Text = bothhero[0, 0];
+                            pictureBox1.Load(bothhero[1, 0]);
+                            label5.Text = bothhero[0, 1];
+                            pictureBox2.Load(bothhero[1, 1]);
+                            label6.Text = bothhero[0, 2];
+                            pictureBox3.Load(bothhero[1, 2]);
+                            viewcounter = 1;
+                            counter = 0;
+                            break;
+
+                        }
+                    case 4:
+                        {
+                            label4.Text = bothhero[0, 0];
+                            pictureBox1.Load(bothhero[1, 0]);
+                            label5.Text = bothhero[0, 1];
+                            pictureBox2.Load(bothhero[1, 1]);
+                            label6.Text = bothhero[0, 2];
+                            pictureBox3.Load(bothhero[1, 2]);
+                            label7.Text = bothhero[0, 3];
+                            pictureBox3.Load(bothhero[1, 3]);
+                            viewcounter = 1;
+                            counter = 0;
+                            break;
+                        }
+                }
+
+            }
+            else
+            {
+                if (viewcounter == 1)
+                {
+                    switch (herocounter)
                     {
-                        label1.Text = bothhero[0, 0];
-                        pictureBox1.Load(bothhero[1, 0]);
-                        label2.Text = bothhero[0, 1];
-                        pictureBox1.Load(bothhero[1, 1]);
-                        if (label1.Text != mass1[0, 1] && label2.Text != mass1[0, 1])
-                        {
-                            label2.Text = mass1[0, 1];
-                            pictureBox2.Load(mass1[1, 1]);
-                        }
-                        break;
+                        case 0:
+                            {
+                                label4.Text = mass1[0, 0];
+                                pictureBox1.Load(mass1[1, 0]);
+                                label5.Text = mass1[0, 1];
+                                pictureBox2.Load(mass1[1, 1]);
+                                if (label4.Text != mass2[0, 2] && label5.Text != mass2[0, 2])
+                                {
+                                    label6.Text = mass2[0, 2];
+                                    pictureBox3.Load(mass2[1, 2]);
+                                }
+                                else
+                                {
+                                    Random random = new Random();
+                                    int randomNumber = random.Next(0, (counter2 / 2));
+                                    label6.Text = mass2[0, randomNumber];
+                                    pictureBox3.Load(mass2[1, randomNumber]);
+                                }
+                                if (label4.Text != mass2[0, 3] && label5.Text != mass2[0, 3])
+                                {
+                                    label7.Text = mass2[0, 3];
+                                    pictureBox5.Load(mass2[1, 3]);
+                                }
+                                else
+                                {
+                                    Random random = new Random();
+                                    int randomNumber = random.Next(0, (counter2/2));
+                                    label7.Text = mass2[0, randomNumber];
+                                    pictureBox5.Load(mass2[1, randomNumber]);
+                                }
+                                label7.Text = mass2[0, 3];
+                                pictureBox5.Load(mass2[1, 3]);
+                                herocounter = 1;
+                                break;
+                            }
+                        case 1:
+                            {
+                                label4.Text = mass2[0, 0];
+                                pictureBox1.Load(mass2[1, 0]);
+                                label5.Text = mass2[0, 1];
+                                pictureBox2.Load(mass2[1, 1]);
+                                label6.Text = mass1[0, 2];
+                                pictureBox3.Load(mass1[1, 2]);
+                                label7.Text = mass1[0, 3];
+                                pictureBox5.Load(mass1[1, 3]);
+                                herocounter = 0;
+                                viewcounter = 0;
+                                break;
+                            }
                     }
+                }
+                else
+                {
+                    if (viewcounter == 2)
+                    {
+                        switch (herocounter)
+                        {
+                            case 0:
+                                {
+                                    label4.Text = mass1[0, 0];
+                                    pictureBox1.Load(mass1[1, 0]);
+                                    label5.Text = mass1[0, 1];
+                                    pictureBox2.Load(mass1[1, 1]);
+                                    if (label4.Text != mass2[0, 2] && label5.Text != mass2[0, 2])
+                                    {
+                                        label6.Text = mass2[0, 2];
+                                        pictureBox3.Load(mass2[1, 2]);
+                                    }
+                                    else
+                                    {
+                                        Random random = new Random();
+                                        int randomNumber = random.Next(0, counter2/2);
+                                        label6.Text = mass2[0, randomNumber];
+                                        pictureBox3.Load(mass2[1, randomNumber]);
+                                    }
+                                    if (label4.Text != mass2[0, 3] && label5.Text != mass2[0, 3])
+                                    {
+                                        label7.Text = mass2[0, 3];
+                                        pictureBox5.Load(mass2[1, 3]);
+                                    }
+                                    else
+                                    {
+                                        Random random = new Random();
+                                        int randomNumber = random.Next(0, counter2/2);
+                                        label7.Text = mass2[0, randomNumber];
+                                        pictureBox5.Load(mass2[1, randomNumber]);
+                                    }
+                                    
+                                    break;
+                                }
+                        }
+                    }
+                }
             }
         }
 
@@ -92,7 +219,8 @@ namespace WindowsFormsApplication4
         }
         string[,] amun_ra = new string[,] { { "Ellonia", "Forsaken Archer", "Deadwood", "Sir Benzington","Devourer"},
             { "http://heroesofnewerth.com/images/heroes/219/icon_128.jpg", "http://heroesofnewerth.com/images/heroes/121/icon_128.jpg", "http://heroesofnewerth.com/images/heroes/123/icon_128.jpg","http://heroesofnewerth.com/images/heroes/234/icon_128.jpg","http://heroesofnewerth.com/images/heroes/6/icon_128.jpg"} };
-        string[] war_beast = new string[] { "Silueth", "SomeAnother", "Empath", "Corrupted Desciple" };
+        string[,] war_beast = new string[,] { { "Silueth", "Devourer", "Ellonia", "Empath", "Corrupted Desciple" },
+            { "http://heroesofnewerth.com/images/heroes/185/icon_128.jpg", "http://heroesofnewerth.com/images/heroes/6/icon_128.jpg", "http://heroesofnewerth.com/images/heroes/219/icon_128.jpg", "http://heroesofnewerth.com/images/heroes/168/icon_128.jpg", "http://heroesofnewerth.com/images/heroes/114/icon_128.jpg" } };
         string[,] Hero;
  
         void Choose1(string[,] mass1)
@@ -185,7 +313,7 @@ namespace WindowsFormsApplication4
                        if (comboBox1.Text == "Amun-Ra")
             {
                 Hero = amun_ra;
-                Choose1(amun_ra);
+                Choose2(amun_ra, war_beast);
             }
 
         }
@@ -212,18 +340,30 @@ namespace WindowsFormsApplication4
 
         private void comboBox2_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if (comboBox2.SelectedItem == "1 Игрок")
+            comboBox1.Visible = false;
+            button1.Visible = false;
+            label2.Visible = false;
+            comboBox3.Visible = false;
+            label1.Visible = false;
+            button2.Visible = false;
+            if (comboBox2.SelectedItem == "1 игрок")
             {
 
-                
                 comboBox1.Visible = true;
-                comboBox3.Visible = false;
-                comboBox4.Visible = false;
                 button1.Visible = true;
-                button2.Visible = false;
-                button3.Visible = false;
-            
+                label2.Visible = true;
+
             }
+
+                if (comboBox2.SelectedItem == "2 игрока")
+                {
+                    comboBox1.Visible = true;
+                    label2.Visible = true;
+                    comboBox3.Visible = true;
+                    label1.Visible = true;
+                    button2.Visible = true;
+                }
+            
         }
 
         private void comboBox2_DropDown(object sender, EventArgs e)
@@ -248,6 +388,50 @@ namespace WindowsFormsApplication4
         }
 
         private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+              
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            switch (comboBox1.Text)
+            {
+                case "Amun-Ra":
+                    {
+                        Hero1 = amun_ra;
+                        selected1 = true;
+                        break;
+                    }
+                default: selected1 = false; break;
+            }
+
+            switch (comboBox3.Text)
+            {
+                case "War Beast":
+                    {
+                        Hero2 = war_beast;
+                        selected2 = true;
+                        break;
+                    }
+                default: selected2 = false; break;
+            }
+            
+            if (selected1 == true && selected2 == true)
+            {
+                Choose2(Hero1, Hero2);
+                selected1 = selected2 = false;
+            }
+
+
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
