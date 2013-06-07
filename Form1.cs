@@ -54,7 +54,7 @@ namespace WindowsFormsApplication4
                             label6.Text = mass2[0, 2];
                             pictureBox3.Load(mass2[1, 2]);
                             label7.Text = mass2[0, 3];
-                            pictureBox3.Load(mass2[1, 3]);
+                            pictureBox5.Load(mass2[1, 3]);
                             viewcounter = 2;
                             counter = 0;
                             break;
@@ -63,6 +63,12 @@ namespace WindowsFormsApplication4
                         {
                             label4.Text = bothhero[0, 0];
                             pictureBox1.Load(bothhero[1, 0]);
+                            label5.Text = "";
+                            label6.Text = "";
+                            label7.Text = "";
+                            pictureBox2.Load("empty_legion.jpg");
+                            pictureBox3.Load("empty_legion.jpg");
+                            pictureBox5.Load("empty_legion.jpg");
                             viewcounter = 1;
                             counter = 0;
                             break;
@@ -74,6 +80,10 @@ namespace WindowsFormsApplication4
                             pictureBox1.Load(bothhero[1, 0]);
                             label5.Text = bothhero[0, 1];
                             pictureBox2.Load(bothhero[1, 1]);
+                            label6.Text = "";
+                            label7.Text = "";
+                            pictureBox3.Load("empty_legion.jpg");
+                            pictureBox5.Load("empty_legion.jpg");
                             viewcounter = 1;
                             counter = 0;
                             break;
@@ -87,6 +97,8 @@ namespace WindowsFormsApplication4
                             pictureBox2.Load(bothhero[1, 1]);
                             label6.Text = bothhero[0, 2];
                             pictureBox3.Load(bothhero[1, 2]);
+                            label7.Text = "";
+                            pictureBox5.Load("empty_legion.jpg");
                             viewcounter = 1;
                             counter = 0;
                             break;
@@ -217,8 +229,8 @@ namespace WindowsFormsApplication4
         {
             InitializeComponent();
         }
-        string[,] amun_ra = new string[,] { { "Ellonia", "Forsaken Archer", "Deadwood", "Sir Benzington","Devourer"},
-            { "http://heroesofnewerth.com/images/heroes/219/icon_128.jpg", "http://heroesofnewerth.com/images/heroes/121/icon_128.jpg", "http://heroesofnewerth.com/images/heroes/123/icon_128.jpg","http://heroesofnewerth.com/images/heroes/234/icon_128.jpg","http://heroesofnewerth.com/images/heroes/6/icon_128.jpg"} };
+        string[,] amun_ra = new string[,] { {  "Forsaken Archer", "Ellonia", "Deadwood", "Sir Benzington","Devourer"},
+            {  "http://heroesofnewerth.com/images/heroes/121/icon_128.jpg", "http://heroesofnewerth.com/images/heroes/219/icon_128.jpg", "http://heroesofnewerth.com/images/heroes/123/icon_128.jpg","http://heroesofnewerth.com/images/heroes/234/icon_128.jpg","http://heroesofnewerth.com/images/heroes/6/icon_128.jpg"} };
         string[,] war_beast = new string[,] { { "Silueth", "Devourer", "Ellonia", "Empath", "Corrupted Desciple" },
             { "http://heroesofnewerth.com/images/heroes/185/icon_128.jpg", "http://heroesofnewerth.com/images/heroes/6/icon_128.jpg", "http://heroesofnewerth.com/images/heroes/219/icon_128.jpg", "http://heroesofnewerth.com/images/heroes/168/icon_128.jpg", "http://heroesofnewerth.com/images/heroes/114/icon_128.jpg" } };
         string[,] Hero;
